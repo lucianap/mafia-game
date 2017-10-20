@@ -29,6 +29,8 @@ public class MafiaGame {
 
         jugadores.add(mafia1);
         jugadores.add(mafia2);
+
+
         jugadores.add(civil1);
         jugadores.add(civil2);
         jugadores.add(civil3);

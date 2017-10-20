@@ -27,6 +27,8 @@ public class Ronda {
         partialDeliberation = new PartialDeliberation(p);
         defense = new Defense(p, partialDeliberationVoting);
         finalDeliberation = new FinalDeliberation(p);
+
+        currentState = nighttime;
     }
 
     public void setPartialDeliberationVoting(Voting partialDeliberation) {
