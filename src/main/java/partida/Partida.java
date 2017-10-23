@@ -1,6 +1,5 @@
 package partida;
 
-import partida.estados.*;
 import roles.Civilian;
 import roles.Mafia;
 import roles.Med;

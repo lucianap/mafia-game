@@ -52,7 +52,6 @@ public class Jugador {
         return "Player " + name;
     }
 
-
     public boolean isEliminated() {
         return eliminated;
     }
@@ -60,4 +59,5 @@ public class Jugador {
     public void eliminate() {
         this.eliminated = true;
     }
+
 }
