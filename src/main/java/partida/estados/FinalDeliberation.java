@@ -3,12 +3,12 @@ package partida.estados;
 import partida.Estado;
 import partida.Jugador;
 import partida.Partida;
-import partida.voting.Voting;
+import partida.voting.PlayersVoting;
 
 public class FinalDeliberation extends Estado {
 
     Partida partida;
-    Voting finalDeliberation;
+    PlayersVoting finalDeliberation;
 
     public FinalDeliberation(Partida p){
         this.partida = p;

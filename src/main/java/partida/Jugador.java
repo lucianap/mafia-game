@@ -7,11 +7,13 @@ public class Jugador {
     private String name;
     private Rol rol;
     private boolean alive;
+    private boolean eliminated;
 
     public Jugador(String name, Rol rol, boolean alive) {
         this.name = name;
         this.rol = rol;
         this.alive = alive;
+        this.eliminated = false;
     }
 
     public String getName() {
@@ -51,4 +53,11 @@ public class Jugador {
     }
 
 
+    public boolean isEliminated() {
+        return eliminated;
+    }
+
+    public void eliminate() {
+        this.eliminated = true;
+    }
 }

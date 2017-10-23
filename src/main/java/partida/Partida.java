@@ -7,6 +7,7 @@ import roles.Med;
 import roles.Police;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Partida {
 
@@ -15,7 +16,7 @@ public class Partida {
 
     public Partida(List<Jugador> jugadores) {
         this.jugadores = jugadores;
-        currentRound = new Ronda(this);
+        this.currentRound = new Ronda(this);
 
         try {
             startPartida();
@@ -31,7 +32,6 @@ public class Partida {
     private void startPartida() throws Exception {
         this.currentRound.getCurrentState().run();
     }
-
 
     public boolean ends(){
         boolean shouldEnd = false;
@@ -70,12 +70,22 @@ public class Partida {
 
     public void nextRound() {
         if(!ends()) {
+            //Eliminate all the players being killed
+            killPlayers();
             this.currentRound = new Ronda(this);
         } else if(mafiaWins()) {
             System.out.println("The mafia wins!");
         } else if(townWins()){
             System.out.println("The townpeople wins!");
         }
+    }
+
+    public List<Jugador> playersToBeKilled(){
+        return jugadores.stream().filter(j-> !j.isAlive()).collect(Collectors.toList());
+    }
+
+    public void killPlayers(){
+        jugadores.stream().filter(j -> !j.isAlive()).forEach(killed -> killed.eliminate());
     }
 
     public void performActionUpon(Jugador j, Med me) {

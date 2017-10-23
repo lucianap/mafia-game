@@ -1,7 +1,7 @@
 package partida;
 
 import partida.estados.*;
-import partida.voting.Voting;
+import partida.voting.PlayersVoting;
 
 public class Ronda {
 
@@ -15,8 +15,8 @@ public class Ronda {
     private Estado finalDeliberation;
     private Estado currentState;
 
-    private Voting partialDeliberationVoting;
-    private Voting finalDeliberationVoting;
+    private PlayersVoting partialDeliberationVoting;
+    private PlayersVoting finalDeliberationVoting;
 
     public Ronda(Partida p){
         nighttime = new NightTime(p);
@@ -31,11 +31,11 @@ public class Ronda {
         currentState = nighttime;
     }
 
-    public void setPartialDeliberationVoting(Voting partialDeliberation) {
+    public void setPartialDeliberationVoting(PlayersVoting partialDeliberation) {
         this.partialDeliberationVoting = partialDeliberation;
     }
 
-    public void setFinalDeliberationVoting(Voting finalDeliberationVoting) {
+    public void setFinalDeliberationVoting(PlayersVoting finalDeliberationVoting) {
         this.finalDeliberation = finalDeliberation;
     }
 

@@ -15,6 +15,8 @@ public class Daytime extends Estado {
     }
 
     public void run() throws Exception {
+        System.out.println("Players being killed: " + partida.playersToBeKilled());
+        partida.killPlayers();
         Thread.sleep(100l);
     }
 

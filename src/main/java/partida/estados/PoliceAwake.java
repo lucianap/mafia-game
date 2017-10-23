@@ -10,7 +10,7 @@ public class PoliceAwake extends Estado {
     Partida partida;
 
     public void performActionUpon(Jugador j, Police me) {
-        System.out.println("Police " + me.toString() + " ask if " + j.toString() + "is mafia? " + j.isMafia());
+        System.out.println("Police " + me.toString() + " ask if " + j.toString() + " is mafia? " + j.isMafia());
         nextState();
     }
 

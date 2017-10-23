@@ -3,24 +3,29 @@ package partida.estados;
 import partida.Estado;
 import partida.Jugador;
 import partida.Partida;
-import partida.voting.Voting;
+import partida.voting.MafiaVoting;
 import roles.Mafia;
+import roles.Rol;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MafiaAwake extends Estado {
 
     private Partida partida;
+    private MafiaVoting deliberation;
 
     public MafiaAwake(Partida p) {
         this.partida = p;
+        deliberation = new MafiaVoting();
     }
 
-    private int votes = 0;
     public void performActionUpon(Jugador j, Mafia me) {
-        votes++;
-        if(votes == partida.numberOfMafiasAlive()) {
-            votes = 0;
-            System.out.println("Mafia " + me.toString() + " kills " + j.toString());
-            j.setAlive(false);
+        deliberation.voteOrChangeVote(j, me);
+        if ((deliberation.numberOfVotes() == partida.numberOfMafiasAlive()) && deliberation.getMoreVoted().size() == 1) {
+            Jugador killed = deliberation.getMoreVoted().get(0);
+            System.out.println("Mafia " + me.toString() + " kills " + killed.toString());
+            killed.setAlive(false);
             nextState();
         }
     }

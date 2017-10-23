@@ -3,14 +3,14 @@ package partida.estados;
 import partida.Estado;
 import partida.Jugador;
 import partida.Partida;
-import partida.voting.Voting;
+import partida.voting.PlayersVoting;
 
 public class Defense extends Estado {
 
     Partida partida;
-    Voting partialDeliberation;
+    PlayersVoting partialDeliberation;
 
-    public Defense(Partida p, Voting partialDeliberation) {
+    public Defense(Partida p, PlayersVoting partialDeliberation) {
         this.partida = p;
     }
 
