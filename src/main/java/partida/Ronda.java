@@ -15,8 +15,8 @@ public class Ronda {
     private Estado finalDeliberation;
     private Estado currentState;
 
-    private PlayersVoting partialDeliberationVoting;
-    private PlayersVoting finalDeliberationVoting;
+    private PlayersVoting deliberation;
+
 
     public Ronda(Partida p){
         nighttime = new NightTime(p);
@@ -25,18 +25,14 @@ public class Ronda {
         doctorAwake = new DoctorAwake(p);
         daytime = new Daytime(p);
         partialDeliberation = new PartialDeliberation(p);
-        defense = new Defense(p, partialDeliberationVoting);
-        finalDeliberation = new FinalDeliberation(p);
+        defense = new Defense(p, deliberation);
+        finalDeliberation = new FinalDeliberation(p, deliberation);
 
         currentState = nighttime;
     }
 
-    public void setPartialDeliberationVoting(PlayersVoting partialDeliberation) {
-        this.partialDeliberationVoting = partialDeliberation;
-    }
-
-    public void setFinalDeliberationVoting(PlayersVoting finalDeliberationVoting) {
-        this.finalDeliberation = finalDeliberation;
+    public void setDeliberation(PlayersVoting partialDeliberation) {
+        this.deliberation = partialDeliberation;
     }
 
     public Estado getCurrentState() {

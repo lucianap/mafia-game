@@ -44,8 +44,8 @@ public class Jugador {
         return rol.isMafia();
     }
 
-    public Jugador vote(Jugador j) {
-        return j;
+    public void vote(Jugador j, Partida p) {
+        p.vote(this, j);
     }
 
     public String toString(){

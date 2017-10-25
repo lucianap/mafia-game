@@ -87,6 +87,10 @@ public class Partida {
         jugadores.stream().filter(j -> !j.isAlive()).forEach(killed -> killed.eliminate());
     }
 
+    public void vote(Jugador from, Jugador to) {
+        this.getCurrentRound().getCurrentState().vote(from, to);
+    }
+
     public void performActionUpon(Jugador j, Med me) {
         this.currentRound.getCurrentState().performActionUpon(j, me);
     }

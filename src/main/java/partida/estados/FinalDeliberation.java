@@ -10,8 +10,9 @@ public class FinalDeliberation extends Estado {
     Partida partida;
     PlayersVoting finalDeliberation;
 
-    public FinalDeliberation(Partida p){
+    public FinalDeliberation(Partida p, PlayersVoting deliberation){
         this.partida = p;
+        this.finalDeliberation = deliberation;
     }
 
     public void nextState() {

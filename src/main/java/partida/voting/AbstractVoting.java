@@ -16,8 +16,12 @@ public abstract class AbstractVoting<T> {
     }
 
     public void vote(Jugador to, T from) {
-        votados.merge(to, 1, (a, b) -> a + b);
-        whoVoteWho.put(from, to);
+        if(!whoVoteWho.keySet().contains(from)) {
+            votados.merge(to, 1, (a, b) -> a + b);
+            whoVoteWho.put(from, to);
+        } else {
+            System.out.println("You cannot vote twice!");
+        }
     }
 
     public List<Jugador> getMoreVoted(){

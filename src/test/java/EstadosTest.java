@@ -32,11 +32,22 @@ public class EstadosTest {
         scheme.mafia2.getRol().performActionUpon(scheme.police, partida1);
         scheme.mafia1.getRol().performActionUpon(scheme.police, partida1);
 
+        System.out.println("Partida state: " + partida1.getCurrentRound().getCurrentState());
+
         //Police asks
         scheme.police.getRol().performActionUpon(scheme.mafia1, partida1);
 
+        System.out.println("Partida state: " + partida1.getCurrentRound().getCurrentState());
+
         //Doctor saves police
         scheme.med.getRol().performActionUpon(scheme.police, partida1);
+
+        System.out.println("Partida state: " + partida1.getCurrentRound().getCurrentState());
+
+        scheme.civil1.vote(scheme.civil3, partida1);
+        scheme.civil2.vote(scheme.civil3, partida1);
+        scheme.civil1.vote(scheme.civil3, partida1);
+
 
 
 

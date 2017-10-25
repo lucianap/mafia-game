@@ -12,6 +12,7 @@ public class PartialDeliberation extends Estado {
 
     public PartialDeliberation(Partida p){
         this.partida = p;
+        deliberation = new PlayersVoting();
     }
 
     public void nextState() {
@@ -30,7 +31,7 @@ public class PartialDeliberation extends Estado {
     public void vote(Jugador from, Jugador to){
         deliberation.vote(to, from);
         if(deliberation.numberOfVotes() == partida.numberOfPlayers()) {
-            partida.getCurrentRound().setPartialDeliberationVoting(deliberation);
+            partida.getCurrentRound().setDeliberation(deliberation);
             nextState();
         }
     }
