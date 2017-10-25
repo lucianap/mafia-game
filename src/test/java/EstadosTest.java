@@ -47,6 +47,16 @@ public class EstadosTest {
         scheme.civil1.vote(scheme.civil3, partida1);
         scheme.civil2.vote(scheme.civil3, partida1);
         scheme.civil1.vote(scheme.civil3, partida1);
+        scheme.civil3.vote(scheme.civil1, partida1);
+        scheme.civil4.vote(scheme.med, partida1);
+        scheme.police.vote(scheme.civil3, partida1);
+        scheme.mafia1.vote(scheme.civil3, partida1);
+        scheme.med.vote(scheme.civil3, partida1);
+        scheme.police.vote(scheme.civil1, partida1);
+        scheme.mafia2.vote(scheme.civil1, partida1);
+
+
+        System.out.println("Partida state: " + partida1.getCurrentRound().getCurrentState());
 
 
 

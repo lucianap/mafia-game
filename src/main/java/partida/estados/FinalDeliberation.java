@@ -29,7 +29,11 @@ public class FinalDeliberation extends Estado {
     }
 
     public void vote(Jugador from, Jugador to){
-        finalDeliberation.vote(to, from);
+        finalDeliberation.changeVote(to, from);
+        if(finalDeliberation.numberOfVotes() == partida.numberOfPlayers()) {
+            partida.getCurrentRound().setDeliberation(finalDeliberation);
+            nextState();
+        }
     }
 
 }

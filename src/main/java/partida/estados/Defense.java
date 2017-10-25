@@ -12,6 +12,7 @@ public class Defense extends Estado {
 
     public Defense(Partida p, PlayersVoting partialDeliberation) {
         this.partida = p;
+        this.partialDeliberation = partialDeliberation;
     }
 
     public void nextState() {
@@ -23,7 +24,7 @@ public class Defense extends Estado {
         System.out.println("Now the most voted will have 1 minute to defend themselves.");
         for(Jugador j: partialDeliberation.getMoreVoted()) {
             System.out.println("Now, please "+ j.getName() + " defend your case.");
-            Thread.sleep(1000l);
+            Thread.sleep(10000l);
         }
 
         nextState();

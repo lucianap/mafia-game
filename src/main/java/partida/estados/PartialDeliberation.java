@@ -10,9 +10,9 @@ public class PartialDeliberation extends Estado {
     Partida partida;
     PlayersVoting deliberation;
 
-    public PartialDeliberation(Partida p){
+    public PartialDeliberation(Partida p, PlayersVoting deliberation){
         this.partida = p;
-        deliberation = new PlayersVoting();
+        this.deliberation = deliberation;
     }
 
     public void nextState() {

@@ -19,12 +19,13 @@ public class Ronda {
 
 
     public Ronda(Partida p){
+        this.deliberation = new PlayersVoting();
         nighttime = new NightTime(p);
         mafiaAwake = new MafiaAwake(p);
         policeAwake = new PoliceAwake(p);
         doctorAwake = new DoctorAwake(p);
         daytime = new Daytime(p);
-        partialDeliberation = new PartialDeliberation(p);
+        partialDeliberation = new PartialDeliberation(p, deliberation);
         defense = new Defense(p, deliberation);
         finalDeliberation = new FinalDeliberation(p, deliberation);
 
